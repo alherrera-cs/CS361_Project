@@ -1,0 +1,45 @@
+{
+    "alexa": {
+        "sessions": [
+            {
+                "date": "2024-05-06 14:02:18.787377",
+                "subject": "Software Engineering II",
+                "duration": "3"
+            },
+            {
+                "date": "2024-05-06 14:53:02.460909",
+                "subject": "chemicstry",
+                "duration": "1"
+            }
+        ]
+    },
+    "Alexa": {
+        "sessions": [
+            {
+                "date": "2024-05-05 21:09:35.577133",
+                "subject": "Biology",
+                "duration": "3"
+            },
+            {
+                "date": "2024-05-05 21:33:14.981442",
+                "subject": "Chemistry",
+                "duration": "3"
+            }
+        ]
+    },
+    "alexa\\": {
+        "sessions": []
+    },
+    "Haly": {
+        "sessions": [
+            {
+                "date": "2024-05-06 10:36:18.124531",
+                "subject": "Calculus",
+                "duration": "2"
+            }
+        ]
+    },
+    "Barbara2": {
+        "sessions": []
+    }
+}
