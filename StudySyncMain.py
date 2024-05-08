@@ -30,8 +30,18 @@ def register_user(users):
 
 def log_study_session(users, username):
     """Log a new study session with time cost information."""
+    print("Choose your logging method: 1 - Detailed, 2 - Quick")
+    method = input("Enter method: ")
     subject = input("Enter the subject you studied: ")
-    duration = input("Enter the duration (in hours): ")
+
+    if method == '2':
+        # Quick log assumes a default duration
+        duration = '1'  # Default duration of 1 hour
+        print(f"Quick logging session for {duration} hour.")
+    else:
+        # Detailed log requires user to enter duration
+        duration = input("Enter the duration (in hours): ")
+
     session = {'date': str(datetime.now()), 'subject': subject, 'duration': duration}
     users[username]['sessions'].append(session)
     save_data(users)
@@ -100,6 +110,18 @@ def edit_or_delete_session(users, username):
     else:
         print("Invalid option.")
 
+def show_help():
+    print("""
+    Detailed Help Information:
+    1. Log New Study Session: Allows you to enter details about what you studied and for how long.
+    2. View My Study Sessions: Displays all your recorded sessions with options to edit or delete.
+    3. Edit or Delete Study Session: Choose a session to modify or remove it from your log.
+    4. Study Time Averages: View statistical data about your study duration over different time periods.
+    5. Motivational Quote: Displays a random motivational quote to inspire your study sessions.
+    6. Exit: Exits the application after saving any changes made during the current session.
+    """)
+
+
 def main_menu():
     """Main menu for the Study Sync application with mindful exit prompts."""
     ascii_art ="""
@@ -126,6 +148,8 @@ def main_menu():
 
     while True:
         print("""
+    Use the menu to track your study sessions or get inspired with a quote! You may also view weekly totals or weekly/daily/monthly study time average metrics.      
+
         Main Menu:
         1. Log New Study Session
         2. View My Study Sessions
@@ -147,7 +171,7 @@ def main_menu():
         elif choice == '5':
             display_motivational_quote()
         elif choice == '6':
-            print("Help Information: Use the menu to track your study sessions or get inspired with a quote! You may also view weekly totals or weekly/daily/monthly study time average metrics.")
+            show_help()
         elif choice == '7':
             if input("Are you sure you want to exit? (yes/no): ").lower() == 'yes':
                 print("Thank you for using Study Sync. Goodbye!")
